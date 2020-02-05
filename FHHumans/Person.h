@@ -5,7 +5,15 @@
 
 
 enum class Gender{male,female, diverse};
-
+std::string ToString(Gender g) {
+	switch (g)
+	{
+	case Gender::male: return "male";
+	case Gender::female: return "female";
+	case Gender::diverse: return "diverse";
+	}
+	return "nuknown!!!";
+}
 class Person
 {
 public:
@@ -22,7 +30,7 @@ public:
 		out << "Person={";
 		out << PrintExt::to_PrintItemStr("Name", Name) << ", ";
 		out << PrintExt::to_PrintItemStr("Geburthtag", birthday) << ", ";
-		out << PrintExt::to_PrintItemStr("Gender", gender);
+		out << PrintExt::to_PrintItemStr("Gender",ToString( gender));
 		out << "}";
 		return out;
 	}
